@@ -14,43 +14,37 @@ public class Laberinto {
 		Scanner teclado = new Scanner(System.in);
 
 		/*
-		 * Son los niveles del laberinto
+		 * Niveles del laberinto
 		 */
 
 		// Nivel1
-		char[][] laberintoNivel1 = { { ' ', ' ', '▒', '▒', '▒', '▒' }, 
-									{ '▒', ' ', ' ', ' ', ' ', '▒' },
-									{ '▒', ' ', '▒', '▒', '▒', '▒' }, 
-									{ '▒', ' ', ' ', '▒', '▒', '▒' }, 
-									{ '▒', '▒', ' ', ' ', ' ', '▒' },
-									{ '▒', '▒', '▒', '▒', ' ', '▒' } };
+		char[][] laberintoNivel1 = { { ' ', ' ', '▒', '▒', '▒', '▒' }, { '▒', ' ', ' ', ' ', ' ', '▒' },
+				{ '▒', ' ', '▒', '▒', '▒', '▒' }, { '▒', ' ', ' ', '▒', '▒', '▒' }, { '▒', '▒', ' ', ' ', ' ', '▒' },
+				{ '▒', '▒', '▒', '▒', ' ', '▒' } };
 
 		// Nivel2
 		char[][] laberintoNivel2 = { { ' ', '▒', '▒', '▒', '▒', '▒', '▒', '▒' },
-									{ ' ', ' ', ' ', ' ', ' ', ' ', ' ', '▒' }, 
-									{ '▒', ' ', '▒', '▒', ' ', '▒', '▒', '▒' },
-									{ '▒', ' ', ' ', '▒', '▒', '▒', ' ', '▒' }, 
-									{ '▒', ' ', ' ', ' ', ' ', '▒', '▒', '▒' },
-									{ '▒', '▒', '▒', '▒', ' ', ' ', ' ', '▒' }, 
-									{ '▒', ' ', ' ', ' ', ' ', ' ', '▒', '▒' },
-									{ '▒', '▒', '▒', '▒', '▒', ' ', '▒', '▒' } };
+				{ ' ', ' ', ' ', ' ', ' ', ' ', ' ', '▒' }, { '▒', ' ', '▒', '▒', ' ', '▒', '▒', '▒' },
+				{ '▒', ' ', ' ', '▒', '▒', '▒', ' ', '▒' }, { '▒', ' ', ' ', ' ', ' ', '▒', '▒', '▒' },
+				{ '▒', '▒', '▒', '▒', ' ', ' ', ' ', '▒' }, { '▒', ' ', ' ', ' ', ' ', ' ', '▒', '▒' },
+				{ '▒', '▒', '▒', '▒', '▒', ' ', '▒', '▒' } };
 
 		// Nivel3
 		char[][] laberintoNivel3 = { { ' ', ' ', '▒', '▒', '▒', '▒', '▒', '▒', '▒', '▒' },
-									{ '▒', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '▒' },
-									{ '▒', ' ', '▒', '▒', '▒', '▒', '▒', '▒', '▒', '▒' },
-									{ '▒', ' ', ' ', '▒', ' ', ' ', ' ', ' ', ' ', '▒' },
-									{ '▒', ' ', ' ', '▒', ' ', '▒', ' ', '▒', ' ', '▒' },
-									{ '▒', '▒', ' ', '▒', ' ', ' ', ' ', '▒', ' ', '▒' },
-									{ '▒', ' ', ' ', '▒', ' ', '▒', '▒', '▒', ' ', '▒' },
-									{ '▒', ' ', '▒', '▒', ' ', ' ', ' ', ' ', ' ', '▒' },
-									{ '▒', ' ', ' ', ' ', ' ', '▒', ' ', ' ', ' ', '▒' },
-									{ '▒', '▒', '▒', '▒', '▒', '▒', ' ', '▒', '▒', '▒' } };
-		
+				{ '▒', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '▒' },
+				{ '▒', ' ', '▒', '▒', '▒', '▒', '▒', '▒', '▒', '▒' },
+				{ '▒', ' ', ' ', '▒', ' ', ' ', ' ', ' ', ' ', '▒' },
+				{ '▒', ' ', ' ', '▒', ' ', '▒', ' ', '▒', ' ', '▒' },
+				{ '▒', '▒', ' ', '▒', ' ', ' ', ' ', '▒', ' ', '▒' },
+				{ '▒', ' ', ' ', '▒', ' ', '▒', '▒', '▒', ' ', '▒' },
+				{ '▒', ' ', '▒', '▒', ' ', ' ', ' ', ' ', ' ', '▒' },
+				{ '▒', ' ', ' ', ' ', ' ', '▒', ' ', ' ', ' ', '▒' },
+				{ '▒', '▒', '▒', '▒', '▒', '▒', ' ', '▒', '▒', '▒' } };
+
 		/*
 		 * MENU
 		 */
-		
+
 		// Muestro el menu
 		System.out.println("---------- MENÚ ----------");
 		System.out.println("1-Jugar Partida\n2-Resultats partides\nq-Sortir\n");
@@ -83,7 +77,7 @@ public class Laberinto {
 					int N1filC = 5;
 					int N1colC = 4;
 					System.out.println("Partida " + (i + 1));
-					moverPepito(laberintoNivel1, N1filP, N1colP, N1filC, N1colC, nivel, numPartidas);
+					moverPepito(laberintoNivel1, N1filP, N1colP, N1filC, N1colC, nivel);
 				} else if (nivel == 2) {
 					// Posición de Pepito
 					laberintoNivel2[0][0] = '☺';
@@ -97,7 +91,7 @@ public class Laberinto {
 					int N2filC = 7;
 					int N2colC = 5;
 					System.out.println("Partida " + (i + 1));
-					moverPepito(laberintoNivel2, N2filP, N2colP, N2filC, N2colC, nivel, numPartidas);
+					moverPepito(laberintoNivel2, N2filP, N2colP, N2filC, N2colC, nivel);
 				} else if (nivel == 3) {
 					// Posición de Pepito
 					laberintoNivel3[0][0] = '☺';
@@ -111,7 +105,7 @@ public class Laberinto {
 					int N3filC = 9;
 					int N3colC = 6;
 					System.out.println("Partida " + (i + 1));
-					moverPepito(laberintoNivel3, N3filP, N3colP, N3filC, N3colC, nivel, numPartidas);
+					moverPepito(laberintoNivel3, N3filP, N3colP, N3filC, N3colC, nivel);
 				} else {
 					System.out.println("!Error!, no exixte el nivell que intentas jugar...");
 				}
@@ -135,7 +129,6 @@ public class Laberinto {
 
 	/**
 	 * Función que imprime la mapa del laberinto y recorre las filas y columnas
-	 *
 	 * @param mapa le pasamos una matriz como el parametro
 	 */
 	public static void mapaLaberinto(char[][] mapa) {
@@ -159,13 +152,16 @@ public class Laberinto {
 	}
 
 	/**
-	 * Funicón que mueve el pepito segun tecla presionada
-	 *
+	 * 
 	 * @param laberinto
+	 * @param fil
+	 * @param col
+	 * @param filC
+	 * @param colC
 	 * @param nivel
 	 * @throws IOException
 	 */
-	public static void moverPepito(char[][] laberinto, int fil, int col, int filC, int colC, int nivel, int partida)
+	public static void moverPepito(char[][] laberinto, int fil, int col, int filC, int colC, int nivel)
 			throws IOException {
 		// Scanner
 		Scanner teclado = new Scanner(System.in);
@@ -235,7 +231,7 @@ public class Laberinto {
 				}
 				if (golpes == 3) {
 					System.out.println("Has perdido la partida.");
-					guardarResultado(false, nivel, partida);
+					guardarResultado(false, nivel);
 				}
 
 				// Salir
@@ -243,12 +239,12 @@ public class Laberinto {
 					System.out.println("Has salido del juego!");
 					salir = true;
 					golpes = 3;
-					guardarResultado(false, nivel, partida);
+					guardarResultado(false, nivel);
 				}
 
 			} else {
 				System.out.println("Has ganado la partida!");
-				guardarResultado(true, nivel, partida);
+				guardarResultado(true, nivel);
 				golpes = 3;
 
 			}
@@ -257,8 +253,7 @@ public class Laberinto {
 	}
 
 	/**
-	 * Función que pide las tecla para mover
-	 *
+	 * Función que pide las tecla para mover el pepito
 	 * @return la tecla
 	 */
 	public static String move() {
@@ -273,12 +268,13 @@ public class Laberinto {
 	}
 
 	/**
-	 * Función que guarda los resultados del partido
-	 * 
+	 * Función que gurada los resultados de los partidos
+	 * @param haGanado he pasomo un booleano como el parametro para saber si ha gandao o no
+	 * @param nivel también le pasamos el parametro nivel para saber el nivel que estaba jugando
 	 * @throws IOException
 	 */
-	public static void guardarResultado(boolean haGanado, int nivel, int partidas) throws IOException {
-		String file = "nombreFichero.txt";
+	public static void guardarResultado(boolean haGanado, int nivel) throws IOException {
+		String file = "results.txt";
 		String escribir = "";
 		FileReader fichero = new FileReader(file);
 		Scanner teclado = new Scanner(fichero);
@@ -286,9 +282,9 @@ public class Laberinto {
 			escribir += teclado.nextLine() + "\n";
 		}
 		if (haGanado) {
-			escribir += ("Ha completado el nivel " + nivel + " y ha gando!");
+			escribir += ("Ha completado el nivel " + nivel + " y ha gando la partida!");
 		} else {
-			escribir += ("No ha completado el nivel " + nivel);
+			escribir += ("No ha completado el nivel " + nivel + " y ha perdido la partida!");
 		}
 
 		FileWriter fw = new FileWriter(file);
@@ -297,17 +293,47 @@ public class Laberinto {
 	}
 
 	/**
-	 * Función que muestra los resultados del partido
-	 * 
+	 * Función que muestra los resultados del los partidos jugados
 	 * @throws FileNotFoundException
 	 */
 	public static void mostrarResultado() throws FileNotFoundException {
-		String file = "nombreFichero.txt";
+		String file = "results.txt";
 		FileReader fichero = new FileReader(file);
 		Scanner teclado = new Scanner(fichero);
 		while (teclado.hasNextLine()) {
 			System.out.println(teclado.nextLine());
 		}
+	}
+
+	/**
+	 * 
+	 * @param nomFitxer le pasamos como el parametro el nombre del fichero
+	 * @return y nos devuelve el mapa del laberinto
+	 * @throws FileNotFoundException
+	 */
+	public static char[][] llegirFitxerLaberint(String nomFitxer) throws FileNotFoundException {
+		File fitxer = new File(nomFitxer);
+		Scanner scanner = new Scanner(fitxer);
+
+		// llegim la mida del laberint de la primera línia del fitxer
+		int files = scanner.nextInt();
+		int columnes = scanner.nextInt();
+		scanner.nextLine();
+
+		char[][] laberint = new char[files][columnes];
+
+		// llegim les dades del laberint de les línies següents del fitxer
+		for (int fila = 0; fila < files; fila++) {
+			String linia = scanner.nextLine();
+			for (int columna = 0; columna < columnes; columna++) {
+
+				System.out.print(laberint[fila][columna] = linia.charAt(columna));
+			}
+			System.out.println();
+		}
+
+		scanner.close();
+		return laberint;
 	}
 
 }
