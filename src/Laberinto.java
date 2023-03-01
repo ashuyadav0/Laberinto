@@ -167,6 +167,9 @@ public class Laberinto {
 		Scanner teclado = new Scanner(System.in);
 
 		boolean salir = true;
+		
+		// contMovimiento
+		int contMov = 0;
 
 		// Contador de vidas
 		int golpes = 0;
@@ -188,6 +191,7 @@ public class Laberinto {
 						laberinto[fil - 1][col] = '☺';
 						laberinto[fil][col] = ' ';
 						fil--;
+						contMov++;
 					} else {
 						golpes++;
 						System.out.println("Has golpeado " + golpes + ", te quedan " + (3 - golpes));
@@ -200,6 +204,7 @@ public class Laberinto {
 						laberinto[fil + 1][col] = '☺';
 						laberinto[fil][col] = ' ';
 						fil++;
+						contMov++;
 					} else {
 						golpes++;
 						System.out.println("Has golpeado " + golpes + ", te quedan " + (3 - golpes));
@@ -212,6 +217,7 @@ public class Laberinto {
 						laberinto[fil][col - 1] = '☺';
 						laberinto[fil][col] = ' ';
 						col--;
+						contMov++;
 					} else {
 						golpes++;
 						System.out.println("Has golpeado " + golpes + ", te quedan " + (3 - golpes));
@@ -224,6 +230,7 @@ public class Laberinto {
 						laberinto[fil][col + 1] = '☺';
 						laberinto[fil][col] = ' ';
 						col++;
+						contMov++;
 					} else {
 						golpes++;
 						System.out.println("Has golpeado " + golpes + ", te quedan " + (3 - golpes));
@@ -231,7 +238,7 @@ public class Laberinto {
 				}
 				if (golpes == 3) {
 					System.out.println("Has perdido la partida.");
-					guardarResultado(false, nivel);
+					guardarResultado(false, nivel, contMov);
 				}
 
 				// Salir
@@ -239,12 +246,12 @@ public class Laberinto {
 					System.out.println("Has salido del juego!");
 					salir = true;
 					golpes = 3;
-					guardarResultado(false, nivel);
+					guardarResultado(false, nivel, contMov);
 				}
 
 			} else {
 				System.out.println("Has ganado la partida!");
-				guardarResultado(true, nivel);
+				guardarResultado(true, nivel, contMov);
 				golpes = 3;
 
 			}
@@ -273,7 +280,7 @@ public class Laberinto {
 	 * @param nivel también le pasamos el parametro nivel para saber el nivel que estaba jugando
 	 * @throws IOException
 	 */
-	public static void guardarResultado(boolean haGanado, int nivel) throws IOException {
+	public static void guardarResultado(boolean haGanado, int nivel, int numMov) throws IOException {
 		String file = "results.txt";
 		String escribir = "";
 		FileReader fichero = new FileReader(file);
@@ -282,9 +289,9 @@ public class Laberinto {
 			escribir += teclado.nextLine() + "\n";
 		}
 		if (haGanado) {
-			escribir += ("Ha completado el nivel " + nivel + " y ha gando la partida!");
+			escribir += ("NumMove: " + numMov +"\nHa completado el nivel " + nivel + " y ha gando la partida!");
 		} else {
-			escribir += ("No ha completado el nivel " + nivel + " y ha perdido la partida!");
+			escribir += ("NumMove: " + numMov +"\nNo ha completado el nivel " + nivel + " y ha perdido la partida!");
 		}
 
 		FileWriter fw = new FileWriter(file);

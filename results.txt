@@ -1,3 +1,2 @@
-No ha completado el nivel 1 y ha perdido la partida!
-Ha completado el nivel 2 y ha gando la partida!
-No ha completado el nivel 2 y ha perdido la partida!
+NumMove: 9
+Ha completado el nivel 1 y ha gando la partida!
